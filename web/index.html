@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="myApp">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1.0, maximum-scale=1.0,user-scalable=no">
+
+    <title>angular</title>
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/index.css">
+    <script src="js/common/jquery.js"></script>
+    <script src="js/common/angular.min.js"></script>
+    <script src="js/common/angular-route.min.js"></script>
+    <script src="js/common/TouchSlide.1.1.js"></script>
+
+    <script>
+        (function () {
+            var colCount = 20,
+                colSize = document.documentElement.clientWidth / colCount;
+            //$('html').clientWidth
+            $("html").css("font-size",colSize+"px");
+        })();
+    </script>
+    <script src="js/route.js"></script>
+    <script src="js/controller.js"></script>
+</head>
+<body ng-controller="myCtrl">
+<header>
+    <div id="header-top">
+        <div class="icon classify-icon">=</div>
+        <div class="icon search-icon">
+            <span>输入你正在找的宝贝</span>
+        </div>
+    </div>
+</header>
+<div class="clear"></div>
+
+<div id="container" ng-view></div>
+
+<div class="clear"></div>
+
+<footer>
+    <div id="footer">
+        <div class="nav"><a href="#/">首页</a></div>
+        <div class="nav"><a href="#/classify">分类</a></div>
+        <div class="nav publish"><a href="#/publish">发布</a></div>
+        <div class="nav"><a href="#/message">消息</a></div>
+        <div class="nav"><a href="#/mine">我的</a></div>
+    </div>
+</footer>
+</body>
+</html>

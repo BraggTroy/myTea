@@ -1,0 +1,43 @@
+/****************** index ********************/
+.classify-icon{
+    float: left;
+    width: 2rem;
+    text-align: center;
+    font-size: 1rem;
+}
+.search-icon{
+    width: 16rem;
+    height: 1.2rem;
+    margin: 0.5rem auto;
+    border-radius: 0.7rem;
+    border: 1px solid #ccc;
+    box-shadow: 0 0 0.2rem #ccc;
+    text-align: center;
+    color: #999;
+    font-size: 0.8rem;
+    line-height: 1.1rem;
+}
+
+#footer{
+    position: fixed;
+    bottom: 0;
+    height: 2.5rem;
+    width: 100%;
+    display: flex;
+    border-top: 1px solid #f0f0f0;
+    box-shadow: 0 0 2px #999;
+}
+#footer .nav{
+    flex: 1;
+    text-align: center;
+    font-size: 1rem;
+    line-height: 2.5rem;
+}
+#footer .nav a{
+    color: #333;
+}
+#footer .nav a.active{
+    color: #f40;
+}
+
+

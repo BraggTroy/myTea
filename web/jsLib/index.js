@@ -38,7 +38,7 @@ var arr = Array.from(arrLike);
 
 
 $.inArray("INQUIRY",arr);   //返回该元素在数组中的索引，如果不存在返回-1，可用于判断
-
+arr.indexOf("INQUIRY");     //返回该元素在数组中的索引，如果不存在返回-1，可用于判断
 
 //===================================
 Math.ceil();//向上取整
@@ -51,10 +51,20 @@ var selectFrom = function(lowCase, upCase){
 };//    在lowCase到upCase之间选择任意一个数
 // 应用场景：在某数组中随机选取数组元素，如随机色彩
 
+//=========================
+var obj = {name:'chen',age:'24',sex:'man',height:'170'};    //这样的定义方式，使得属性可以for-in遍历
+for(item in obj){
+    console.log(obj[item]);
+}
+delete obj.name;  //删除name属性；obj={age:'24',sex:'man',height:'170'}
+obj.hasOwnProperty('name'); //false
 
-
-
-
+//设置属性不可编辑，修改删除等操作失效，严格模式下报错，非严格模式下忽略操作 
+var person = {}
+Object.defineProperty(person,"name",{
+    configurable: false,
+    value: 'chen'
+});
 
 
 

@@ -20,10 +20,9 @@
             $("html").css("font-size",colSize+"px");
         })();
     </script>
-    <script src="js/route.js"></script>
-    <script src="js/controller.js"></script>
+
 </head>
-<body ng-controller="myCtrl">
+<body>
 <header>
     <div id="header-top">
         <div class="icon classify-icon">=</div>
@@ -34,7 +33,50 @@
 </header>
 <div class="clear"></div>
 
-<div id="container" ng-view></div>
+<!--<div id="container" ng-view></div>-->
+<div ng-controller="homeCtrl">
+    <div id="focus" class="focus">
+        <div class="hd">
+            <ul></ul>
+        </div>
+        <div class="bd">
+            <!--<ul ng-include="'ul_template'">
+            </ul>-->
+            <ul>
+                <li ng-repeat="v in ads" ><a href="#"><img _src="images/home/{{v.adname}}"  src="images/common/blank.png" /></a></li>
+            </ul>
+        </div>
+    </div>
+
+    <script type="text/ng-template" id="ul_template"></script>
+    <style type="text/css">
+        .focus{ width:100%; height:10rem;  margin:0 auto; position:relative; overflow:hidden;   }
+        .focus .hd{ width:100%; height:1rem;  position:absolute; z-index:1; bottom:0.5rem; text-align:center;  }
+        .focus .hd ul{ display:inline-block; height:0.5rem; padding:0.3rem 0.5rem; background-color:rgba(255,255,255,0.7);
+            border-radius:0.5rem; font-size:0; vertical-align:top;
+        }
+        .focus .hd ul li{ display:inline-block; width:0.5rem; height:0.5rem; border-radius:0.5rem; background:#8C8C8C; margin:0 0.5rem;  vertical-align:top; overflow:hidden;   }
+        .focus .hd ul .on{ background:#FE6C9C;  }
+
+        .focus .bd{ position:relative; z-index:0; }
+        .focus .bd li img{ width:100%;  height:10rem; background:url(images/common/loading.gif) center center no-repeat;  }
+        .focus .bd li a{ -webkit-tap-highlight-color:rgba(0, 0, 0, 0); /* 取消链接高亮 */  }
+    </style>
+    <script type="text/javascript">
+        $(function(){
+            TouchSlide({
+                slideCell: "#focus",
+                titCell: ".hd ul", //开启自动分页 autoPage:true ，此时设置 titCell 为导航元素包裹层
+                mainCell: ".bd ul",
+                effect: "left",
+                autoPlay: true,//自动播放
+                autoPage: true, //自动分页
+                switchLoad: "_src" //切换加载，真实图片路径为"_src"
+            })
+        })
+    </script>
+</div>
+
 
 <div class="clear"></div>
 
@@ -47,5 +89,7 @@
         <div class="nav"><a href="#/mine">我的</a></div>
     </div>
 </footer>
+<script src="js/route.js"></script>
+<script src="js/controller.js"></script>
 </body>
 </html>

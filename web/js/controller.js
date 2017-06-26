@@ -1,61 +1,44 @@
 /**
  * Created by Bragg Troy on 2017/6/24.
  */
-app.controller('myCtrl', ['$scope',function ($scope) {
-
-}]);
+//app.controller('myCtrl', ['$scope',function ($scope) {
+//
+//}]);
 
 
 // 首页
-app.controller('homeCtrl', ['$scope','$http','$timeout', function ($scope,$http,$timeout) {
+app.controller('homeCtrl', ['$scope','$http','$templateCache','$templateRequest', function ($scope,$http,$templateCache,$templateRequest) {
     $scope.ads = [
         {adname:'m1.jpg'},
         {adname:'m2.jpg'},
         {adname:'m3.jpg'}
     ];
+    //模板
+    var template = '';
+    $.each($scope.ads,function(i,v){
+        template += '<li><a href="#"><img _src="images/home/'+ v.adname +'" src="images/common/blank.png" /></a></li>';
+    });
+    $templateCache.put('ul_template',template)
 
-    app.directive('adFunction',function () {
-        return {
-            link: function (scope,element,attr) {
-                if(scope.$last == true){
-                    // console.log('ng-repeat执行完毕')
-                    // scope.$eval( attr.adL )
-                    // scope.$emit('to-parent')
-                    TouchSlide({
-                        slideCell:"#focus",
-                        titCell:".hd ul", //开启自动分页 autoPage:true ，此时设置 titCell 为导航元素包裹层
-                        mainCell:".bd ul",
-                        effect:"left",
-                        autoPlay:true,//自动播放
-                        autoPage:true, //自动分页
-                        switchLoad:"_src" //切换加载，真实图片路径为"_src"
-                    });
-                }
-            }
-        }
-    })
-    $scope.adFunction = function () {
-        TouchSlide({
-            slideCell:"#focus",
-            titCell:".hd ul", //开启自动分页 autoPage:true ，此时设置 titCell 为导航元素包裹层
-            mainCell:".bd ul",
-            effect:"left",
-            autoPlay:true,//自动播放
-            autoPage:true, //自动分页
-            switchLoad:"_src" //切换加载，真实图片路径为"_src"
-        });
-    }
-    $scope.$on('to-parent',function () {
-        TouchSlide({
-            slideCell:"#focus",
-            titCell:".hd ul", //开启自动分页 autoPage:true ，此时设置 titCell 为导航元素包裹层
-            mainCell:".bd ul",
-            effect:"left",
-            autoPlay:true,//自动播放
-            autoPage:true, //自动分页
-            switchLoad:"_src" //切换加载，真实图片路径为"_src"
-        });
-    })
+    //当数据是$http获取时
+    $http({
+        method:'GET',
+        url:'http://cdn.static.runoob.com/libs/angular.js/1.4.6/angular.min.js'
+    }).then(
+        function successCallback(response){}
+    )
+
+
+/*
+* $http({
+ method: 'GET',
+ url: 'http://www.runoob.com/try/angularjs/data/sites.php'
+ }).then(function successCallback(response) {
+ $scope.names = response.data.sites;
+ }, function errorCallback(response) {
+ // 请求失败执行代码
+ });
+ */
 
 
 

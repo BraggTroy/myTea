@@ -1,0 +1,116 @@
+
+1.数组方法=>map();
+
+==写法一：在编辑器中运行正常，但语法报错；
+array.map(item => {
+	if(item.id == thisId){
+		function();
+	}
+});
+
+==写法二：正常；
+array.map(function(item){
+	if(item.id == thisId){
+		function();
+	}
+});
+
+对数组中的每一个元素执行操作，自动传递数组元素作为参数。
+其执行结果与for循环一样，效率尚待比较。
+
+
+
+
+2017.02.17
+========================
+toFixed(n)
+number.toFixed(n);
+number保留小数点后n位
+
+
+
+============================
+cxt.drawImage(img,x,y,width,heigh,sourceX, sourceY,sourceWidth, sourceHeight)
+  
+    x,y代表开始剪切图像的x,y坐标的位置，加载一张图像，开始的位置便是0,0如果我想剪辑其中的某个部分，那么对应的增加参数值就是。
+
+    width,heigh，被剪切图像的宽度和高度，意思很明显，就是我需要的图片，要多少，剪切多少。
+
+    sourceX, sourceY,在画布里，放置图像的坐标，就是放在哪个位置。注意，这里是以图片的左上角为参照的。
+
+    sourceWidth, sourceHeight，要使用的图像的宽度和高度。（伸展或缩小图像）
+
+
+
+2017.06.16
+==========================================================
+对arguments的使用，将不定量的参数合并。虽然arguments对象并不是一个数组，但是访问单个参数的方式与访问数组元素的方式相同
+
+例如：arguments[0],arguments[1],。。。。。。。。arguments[n],
+var merge = function () {
+	var inner_merge = function (obj1, obj2) {
+		for (var key in obj2) {
+			if (obj2.hasOwnProperty(key)) {
+				obj1[key] = obj2[key]
+			}
+		}
+		return obj1
+	}
+	var ret = {}
+	for (var i = 0, l = arguments.length; i < l; i++) {
+		inner_merge(ret, arguments[i])
+	}
+	return ret
+}
+
+2017.06.19
+JavaScript数组操作
+===========================================================
+//map();返回被fn处理过的新数组。   map(index,elem)
+//将val拼接
+$("input").map(function(){
+    return $(this).val()
+}).get().join(",")
+
+
+var arr = Array.of("b","a","c",undefined);
+
+arr.shift();    //删除数组第一个元素,并返回被删除元素
+arr.unshift("a");   //在数组前面添加一个元素“a”，并返回新数组长度
+
+arr.pop();    //删除数组末位元素，并返回被删除元素
+arr.push();     //在数组最后添加一个元素，并返回新数组长度
+
+arr.slice(n,m);     //返回数组中从下标为n开始的m个元素，不影响原数组
+arr.splice(n,m,p);  //删除数组中下标为n开始的m个元素，并在被删除位置插入p，返回被删除元素
+arr.sort();     //数组元素自然排序，参数可选为函数
+arr.reverse();  //倒置数组元素
+arr.toString(); //等同于arr.join(",")
+arr.join();     //将数组中元素拼接为字符串并返回，不影响原数组
+
+
+var arr2 = arr.slice();     //将arr复制到arr2，arr变化不影响arr2
+var arr3 = arr;     //arr的变化将直接指向arr3
+
+
+
+
+$.inArray("INQUIRY",arr);   //返回该元素在数组中的索引，如果不存在返回-1，可用于判断
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

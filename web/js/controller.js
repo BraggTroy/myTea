@@ -7,7 +7,7 @@
 
 
 // 首页
-app.controller('homeCtrl', ['$scope','$http','$templateCache','$templateRequest', function ($scope,$http,$templateCache,$templateRequest) {
+app.controller('homeCtrl', ['$scope','$http','$templateCache','$templateRequest', function ($scope,$http,$templateCache) {
     $scope.ads = [
         {adname:'m1.jpg'},
         {adname:'m2.jpg'},
@@ -18,7 +18,17 @@ app.controller('homeCtrl', ['$scope','$http','$templateCache','$templateRequest'
     $.each($scope.ads,function(i,v){
         template += '<li><a href="#"><img _src="images/home/'+ v.adname +'" src="images/common/blank.png" /></a></li>';
     });
-    $templateCache.put('ul_template',template)
+    // $templateCache.put('ul_template',template);  //异步实现有延迟
+    $("#bd-ul").html(template);
+    TouchSlide({
+        slideCell: "#focus",
+        titCell: ".hd ul", //开启自动分页 autoPage:true ，此时设置 titCell 为导航元素包裹层
+        mainCell: ".bd ul",
+        effect: "left",
+        autoPlay: true,//自动播放
+        autoPage: true, //自动分页
+        switchLoad: "_src" //切换加载，真实图片路径为"_src"
+    });
 
     //当数据是$http获取时
     /*$http({
@@ -31,7 +41,6 @@ app.controller('homeCtrl', ['$scope','$http','$templateCache','$templateRequest'
 
     //$.getJSON("https://way.jd.com/he/freeweather?city=shanghai&appkey=72f124730a2b503771ed4f16fc2b9167&callback=success_jsonpCallback", function(data) {
     //$.getJSON("http://www.runoob.com/try/ajax/jsonp.php?jsoncallback=?", function(data) {
-
 
     //});
 
@@ -48,7 +57,6 @@ app.controller('homeCtrl', ['$scope','$http','$templateCache','$templateRequest'
         },
         error:function(res){
             console.log(0)
-
         }
     });
 

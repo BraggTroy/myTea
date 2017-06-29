@@ -66,10 +66,91 @@ Object.defineProperty(person,"name",{
     value: 'chen'
 });
 
+//JS中排序的实现
+//冒泡排序。依次比较相邻的两个元素，如果后一个小于前一个，则交换，这样从头到尾一次，就将最大的放到了末尾
+function bubbleSort(arr) {
+    var len = arr.length;
+    for (var i = 0; i < len - 1; i++) {
+        for (var j = 0; j < len - 1 - i; j++) {
+            if (arr[j] > arr[j+1]) {        // 相邻元素两两对比
+                var temp = arr[j+1];        // 元素交换
+                arr[j+1] = arr[j];
+                arr[j] = temp;
+            }
+        }
+    }
+    return arr;
+}
+//选择排序。首先在未排序序列中找到最小（大）元素，存放到排序序列的起始位置
+// 再从剩余未排序元素中继续寻找最小（大）元素，然后放到已排序序列的末尾。
+// 重复第二步，直到所有元素均排序完毕。
+function selectionSort(arr) {
+    var len = arr.length;
+    var minIndex, temp;
+    for (var i = 0; i < len - 1; i++) {
+        minIndex = i;
+        for (var j = i + 1; j < len; j++) {
+            if (arr[j] < arr[minIndex]) {     // 寻找最小的数
+                minIndex = j;                 // 将最小数的索引保存
+            }
+        }
+        temp = arr[i];
+        arr[i] = arr[minIndex];
+        arr[minIndex] = temp;
+    }
+    return arr;
+}
+// 插入排序。
+// 插入排序也比较简单。就像打扑克一样，依次将拿到的元素插入到正确的位置即可。
+// 将第一待排序序列第一个元素看做一个有序序列，把第二个元素到最后一个元素当成是未排序序列。
+// 从头到尾依次扫描未排序序列，将扫描到的每个元素插入有序序列的适当位置。（如果待插入的元素与有序序列中的某个元素相等，则将待插入元素插入到相等元素的后面。）
+function insertionSort(arr) {
+    var len = arr.length;
+    var preIndex, current;
+    for (var i = 1; i < len; i++) {
+        preIndex = i - 1;
+        current = arr[i];
+        while(preIndex >= 0 && arr[preIndex] > current) {
+            arr[preIndex+1] = arr[preIndex];
+            preIndex--;
+        }
+        arr[preIndex+1] = current;
+    }
+    return arr;
+}
 
+//最后，归并排序，也是效率最高的排序。基本原理是分治法，就是分开并且递归来排序。
+// 申请空间，使其大小为两个已经排序序列之和，该空间用来存放合并后的序列；
+// 设定两个指针，最初位置分别为两个已经排序序列的起始位置；
+// 比较两个指针所指向的元素，选择相对小的元素放入到合并空间，并移动指针到下一位置；
+// 重复步骤 3 直到某一指针达到序列尾；
+// 将另一序列剩下的所有元素直接复制到合并序列尾。
+function mergeSort(arr) {  // 采用自上而下的递归方法
+    var len = arr.length;
+    if(len < 2) {
+        return arr;
+    }
+    var middle = Math.floor(len / 2),
+        left = arr.slice(0, middle),
+        right = arr.slice(middle);
+    return merge(mergeSort(left), mergeSort(right));
+}      function merge(left, right)      {
+    var result = [];
 
+    while (left.length && right.length) {
+        if (left[0] <= right[0]) {
+            result.push(left.shift());
+        } else {
+            result.push(right.shift());
+        }
+    }
 
+    while (left.length)
+        result.push(left.shift());
 
+    while (right.length)
+        result.push(right.shift());
 
-
+    return result;
+}
 

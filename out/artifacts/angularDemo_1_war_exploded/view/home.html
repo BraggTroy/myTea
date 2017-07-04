@@ -4,12 +4,29 @@
             <ul></ul>
         </div>
         <div class="bd">
+            <!--<ul id="bd-ul" ng-include="'ul_template'">
+            </ul>-->
+            <ul id="bd-ul">
+                <li ng-repeat="v in ads" ><a href="#"><img _src="images/home/{{v.adname}}"  src="images/common/blank.png" /></a></li>
+            </ul>
+        </div>
+    </div>
+    <div class="clear"></div>
+    <div id="notice">
+        <div class="n-label">
+            校园头条
+        </div>
+        <div class="n-cont">
             <ul>
-                <li ng-repeat="v in ads" ng-repeat-finish="adFunction"><a href="#"><img _src="images/home/{{v.adname}}" src="images/common/blank.png" /></a></li>
+                <li>1、公告信息</li>
+                <li>2、通知公告信心</li>
+                <li>3、文章宣读</li>
+                <li>4、活动通知</li>
             </ul>
         </div>
     </div>
 
+    <script type="text/ng-template" id="ul_template"></script>
     <style type="text/css">
         .focus{ width:100%; height:10rem;  margin:0 auto; position:relative; overflow:hidden;   }
         .focus .hd{ width:100%; height:1rem;  position:absolute; z-index:1; bottom:0.5rem; text-align:center;  }
@@ -22,5 +39,15 @@
         .focus .bd{ position:relative; z-index:0; }
         .focus .bd li img{ width:100%;  height:10rem; background:url(images/common/loading.gif) center center no-repeat;  }
         .focus .bd li a{ -webkit-tap-highlight-color:rgba(0, 0, 0, 0); /* 取消链接高亮 */  }
+
+        /*滚动*/
+        #notice{ width: 18rem; margin: 1rem auto;}
+        #notice .n-label{background: #ccc; float: left; width: 4rem; height: 4rem; font-size: 1.5rem; text-align: center;}
+        .n-cont { background: #f0f0f0; width: 14rem; height: 4rem;float: left; overflow: hidden;}
+        .n-cont li { background: #f40; height: 2rem; overflow: hidden; font-size: 1rem;}
+        .n-cont img { border: 0 none;}
     </style>
+    <script src="js/common/util-js-other.js"></script>
+    <script type="text/javascript">
+    </script>
 </div>

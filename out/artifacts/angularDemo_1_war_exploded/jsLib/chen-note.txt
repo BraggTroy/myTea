@@ -1,0 +1,306 @@
+2016.12.26
+=========================================================
+
+1.获取网页源地址（如 www.nodejs.org; 10.134.240.185:8080）
+window.location.host
+window.location.hostname
+
+
+2.获取网页路径（如 /eshipping-truck/truck-saas/truck-home.html）
+window.location.pathname
+
+
+3.获取网页查询字符串（如 ?id=25412&name=5dj2541d）
+window.location.search
+
+
+4.获取网页地址栏（如 http://10.134.240.185:8080/eshipping-truck/truck-saas/truck-home.html?ss=na&&22=kl）
+window.location.href
+	注：该命令将1-2-3合并获取
+
+4.5获取网页请求协议头（如 http: 或 https: ）
+window.location.protocol
+
+
+5.刷新页面
+window.location.reload();
+
+
+6.移除页面元素
+element.remove();
+	注：jQuery中自杀
+
+
+7.数组元素：增，删，改
+arr.splice(index,length,elem)
+
+
+8.js中添加小段信息，如错误提示等 insertBefore
+$("<span>你好！</span>").insertBefore($("#lp"));
+$("<span>你好！</span>").insertAfter($("#lp"));
+
+
+9.after 在某元素后添加元素，类似insertAfter
+$("#main").after(elem);
+	注：其中elem表示一个页面元素，该表达式返回#main元素
+
+
+
+2016.12.27
+===========================================================
+
+
+1.状态码
+304	Not Modified(未修改)	告诉客户端,所请求的内容距离上次访问并没有变化. 客户端可以直接从浏览器缓存里获取该资源.
+400	Bad Request(错误请求)	因发送的请求语法错误,服务器无法正常读取.
+
+
+2.判断页面内某个元素是否存在
+$(selecter).length > 0
+	注：常用于弹框或覆盖层，项目中musk()
+
+
+3.活用children（）与find（）
+	var div = $('<div class="popup"><div class="popup-title">文字内容</div><div class="clear"></div></div>')
+	
+	div.children('.popup-title') == div.find('.popup-title') 二者都返回  [<div class=?"popup-title">123</div>] 
+	typeof() == "object"
+	
+
+4.文字溢出，用“...”
+	display:block; overflow:hidden; text-overflow:ellipsis; white-space:nowrap;
+
+
+5.页面垂直滚动的距离
+document.body.scrollTop
+	注：返回数值 ，常用于滚动后显示回到顶部
+
+
+6.offset,client,scroll 与 offsetWidth/clientWidth/scrollWidth 三者之间的区别
+http://blog.csdn.net/piziliweiguang/article/details/7762770
+
+
+7.JavaScript操作cookie
+document.cookie将获取全部cookie数据，以“;”将每一个 name=value 连接为一个长字符串
+	注：http://www.cnblogs.com/ly312/archive/2010/07/14/1777190.html
+
+
+8.escape() 可对字符串进行编码 ， 可以使用 unescape() 对 escape() 编码的字符串进行解码。
+	escape(" ") => %20 将空格编码为%20
+	unescape("%20") => " " 将%20反编译为空格
+	注：不对字母和数字进行编码，常见于数据的安全传输 和 浏览器地址栏window.location.href的编码
+
+
+9.replace()替换字符串中的特定字符。
+str.replace(reg,replacement);替换首个匹配字符
+str.replace(reg/g,replacement);全局替换
+
+
+10.页面提示框和覆盖透明背景层可以封装为js
+	js通过DOM操作创建页面元素，通过参数控制输出内容
+   页面事件，调用方法时传递参数，弹出对应的模式框。
+
+
+
+11.彩色
+	console.log("%c哈哈哈我有颜色","color:red;font-size:40px;")
+
+	console.log("%c%s","color:red;font-size:40px;","123")
+
+
+
+
+2016.12.28
+===========================================================
+
+1.prevAll()
+jquery中方法，prevAll() 方法返回被选元素之前的所有同级元素。
+	同级元素是共享相同父元素的元素。
+	注：prevUntil() - 返回两个给定参数之间的每个元素之前的所有同级元素。
+
+
+2.transparent
+CSS中 background-color:transparent; 背景色透明（默认也是透明）
+
+
+
+3.runoob阅读：
+<meta http-equiv="Refresh" content="5;url=http://host/path">
+设置页面5秒后自动跳转。
+
+js中函数体内所有变量的声明会提升到前面执行（var x;），但是初始化不会（var y = 1;）。
+
+	
+
+4.改变光标样式
+默认default 、文字/编辑text 、手形pointer 、可移动对象move、不允许not-allowed、等待/沙漏wait、帮助help
+十字准星crosshair、向上改变大小(North)、自定义光标url('光标地址')
+	参考地址：http://www.cnblogs.com/hanqishihu/p/5805566.html
+
+
+
+5.e.preventDefault()
+阻止默认事件，比如<a>的跳转事件。其中e为默认参数（function(e)）
+
+
+
+
+
+2016.12.29
+===========================================================
+
+1.直接修改某个cookie值,但有所不同（详见js-cookie.txt）
+document.cookie="userId=929";
+	注：修改对应值将更新其value
+
+	注2：Domain（域名）将会有所区别，有效期无法设置（默认session），path可能变为/disk（原：/）
+
+
+2.jquery方法trim()
+去除字符串两边的空格
+	var str = "   ss"; str.trim(); => "ss"
+	注：常见于搜索框中字符串的处理
+
+
+
+3.setStyle(ele , style) 对js设置元素样式进行方法封装
+function setStyle(ele , sty){
+    for(var i in sty){
+        ele.style[i] = sty[i];
+    }
+}
+var div = document.querySelector("#div");
+    setStyle(div , {
+        color:'red',
+        height:'100px',
+        width:'400px',
+        'border-radius':'8px'
+    });
+	注：元素必须为js原生对象，样式设置需要以json格式
+	注2：属性名中若有“-”，将属性名应用‘’
+
+
+4.为对象设置自定义方法
+var sh = new Object();
+sh.name = "Show Information";
+sh.showInfo = function(uid){
+	//可以添加其他函数获取数据等等
+	if(!uid){ 没有参数时执行的函数体 }
+	else{ 有参数时执行的函数体 }
+}
+//调用
+sh.showInfo();
+
+//报错
+showInfo();
+	注：其他函数定义的方式参看 
+	http://www.cnblogs.com/mq0036/p/3934867.html （首选）	注：其中//构造器调用模式
+	http://www.jb51.net/article/25940.htm	（次选）
+
+
+5.prototype 英[`preUtotaIp]
+n: 原型
+
+
+
+2017.01.05
+===========================================================
+
+1.toLowerCase()	将字符串转换为小写。
+	stringObject.toLowerCase();
+
+toUpperCase() 方法把字符串转换为大写。
+
+
+2.在线聊天室
+<script type="text/javascript" src="http://meet.xpro.im/v2/api/xmeet.api.js?xnest=rdc&xnest_name=troy"></script>
+<script>
+    function setCookie(c_name, value, expiredays)
+    {
+        var exdate = new Date()
+        exdate.setDate(exdate.getDate() + expiredays)
+        document.cookie = c_name + "=" + escape(value) +
+            ((expiredays == null) ? "" : ";expires=" + exdate.toGMTString())
+    }
+    setCookie('xmeetName', 'zjfree', 1000);
+
+</script>
+
+--------------------------
+<script type="text/javascript" src="http://meet.xpro.im/v2/api/xmeet.api.js?nickname=用户想使用的昵称&xnest=yourNameSpace&xnest_name=显示在窗口的标题&is_store_history=true"></script>
+
+    注：参数is_store_history, 取值true or false, 默认true (true表示存储聊天记录, false表示不存储聊天记录)
+	与小M机器人对话：@开头，紧跟想说的话    如：@上海天气
+	nickname，设置新人的默认昵称，建议不设置使用随机昵称
+
+	
+2017.01.06
+=================================================
+1.回到顶部动画
+window.onscroll = function () {
+        if(document.body.scrollTop >= 800){
+            $(".toTop").slideDown(200);
+        }else{
+            $(".toTop").slideUp(200);
+        }
+    }
+$(".toTop").on("click",function () {
+        $('body').animate({ scrollTop: "0" }, 500);
+    })
+
+
+
+2017.01.11
+=================================================
+1.siblings()
+ 获得匹配集合中每个元素的同胞，通过选择器进行筛选是可选的。
+$("p").siblings(".selected")
+$("p.selected").siblings()	二者效果不同
+
+
+2.hasOwnProperty() 方法用来判断某个对象是否含有指定的自身属性。
+语法：obj.hasOwnProperty(prop)
+参数：prop —— 要检测的属性名称。
+
+
+
+2017.01.12
+=================================================
+1.$(selector).height();
+获取容器的高度。
+	注：可以极大地提高该容器的可扩展性
+  $(selector).offect().top;
+  获取容器到文档（非屏幕）顶部的距离
+	注：offset()函数用于设置或返回当前匹配元素相对于当前文档的偏移，也就是相对于当前文档的坐标。该函数只对可见元素有效。
+
+
+
+2017.01.18
+=================================================(表格资料展示)
+1.为表格设置合并边框模型
+table
+  {
+  border-collapse:collapse;
+  }
+	注：如果没有规定 !DOCTYPE，border-collapse 属性可能会引起意想不到的错误。
+	td{display: table-cell;}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

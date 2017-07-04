@@ -29,7 +29,9 @@ app.controller('homeCtrl', ['$scope','$http','$templateCache','$templateRequest'
         autoPage: true, //自动分页
         switchLoad: "_src" //切换加载，真实图片路径为"_src"
     });
+    document.getElementById("btn").onclick = function () {
 
+    }
     //当数据是$http获取时
     /*$http({
         method:'GET',
@@ -44,7 +46,7 @@ app.controller('homeCtrl', ['$scope','$http','$templateCache','$templateRequest'
 
     //});
 
-    $.ajax({
+    /*$.ajax({
         url:'https://way.jd.com/he/freeweather',
         type:'GET',                                //jsonp 类型下只能使用GET,不能用POST,这里不写默认为GET
         dataType:'jsonp',                          //指定为jsonp类型
@@ -52,13 +54,12 @@ app.controller('homeCtrl', ['$scope','$http','$templateCache','$templateRequest'
         jsonp:'callback',                          //服务器端获取回调函数名的key，对应后台有$_GET['callback']='getName';callback是默认值
         jsonpCallback:'success_jsonpCallback',
         success:function(res){
-
             console.log(1)
         },
         error:function(res){
             console.log(0)
         }
-    });
+    });*/
 
 
 }])

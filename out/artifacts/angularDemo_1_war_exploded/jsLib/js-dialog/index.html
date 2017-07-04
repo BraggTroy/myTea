@@ -1,0 +1,132 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>jDialog弹出层、对话框、提示框jquery插件- 聚合素材网演示页www.juheweb.co</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" href="js/jDialog/jDialog.css" type="text/css">
+<script type="text/javascript" src="js/jquery.js"></script>
+<script type="text/javascript" src="js/jDialog.js"></script>
+<script>
+$(function(){
+	$("#test1").click(function(){
+		var dialog = jDialog.alert('欢迎使用jDialog组件，我是alert！',{},{
+		showShadow: false,// 不显示对话框阴影
+		buttonAlign : 'center',
+		events : {
+			show : function(evt){
+				var dlg = evt.data.dialog;
+			},
+			close : function(evt){
+				var dlg = evt.data.dialog;
+			},
+			enterKey : function(evt){
+				alert('enter key pressed!');
+			},
+			escKey : function(evt){
+				alert('esc key pressed!');
+				evt.data.dialog.close();
+			}
+		}
+	  });
+	}) ; 
+	
+	$("#test2").click(function(){
+		var dialog = jDialog.confirm('欢迎使用jDialog组件，我是confirm！',{
+			handler : function(button,dialog) {
+				alert('你点击了确定！');
+				dialog.close();
+			}
+		},{
+			handler : function(button,dialog) {
+				alert('你点击了取消！');
+				dialog.close();
+			}
+		});
+	});
+	
+	$("#test3").click(function(){
+		// 通过options参数，控制iframe对话框
+		var dialog = jDialog.iframe('http://www.juheweb.com/',{
+			title : '代码编辑器 - 聚合分享出品',
+			width : 1100,
+			height : 550
+		});
+	});
+	
+	$("#test4").click(function(){
+		// 通过options参数，控制dialog
+		var dialog = jDialog.dialog({
+			title : '自定义对话框',
+			content : '大家好，欢迎访问聚合分享，请大家加QQ群：774780837，一起交流！'
+		});
+	});
+	
+	$("#test5").click(function(){
+		// 通过options参数，控制dialog
+		var dialog = jDialog.dialog({
+			title : '自定义对话框',
+			content : '大家好，我是jDialog.dialog！',
+			buttons : [
+				{
+					type : 'highlight',
+					text : '你好',
+					handler:function(button,dialog)
+					{
+						dialog.close();
+					}
+				}
+			]
+		});	
+	});
+	
+	$("#test6").click(function(){
+		var dialog = jDialog.message('大家好，欢迎访问聚合分享',{
+			autoClose : 3000,    // 3s后自动关闭
+			padding : '30px',    // 设置内部padding
+			modal: true         // 非模态，即不显示遮罩层
+		});
+	});
+	
+	$("#test7").click(function(){
+		var dialog = jDialog.tip('大家好，欢迎访问聚合分享',{
+			target : $('#test7'),
+   			position : 'left-top',
+   			trianglePosFromStart :0,
+			autoClose : 1000,
+			offset : {
+        		top :-20,
+				left:10,
+				right:0,
+				bottom:0
+   			}
+		});
+	});
+	
+});
+</script>
+<title>jDialog</title>
+</head>
+<body>
+<br/><br/><br/>
+<center>
+<button id="test1">alert方式调用</button>
+<br/><br/>
+<button id="test2">confirm方式调用</button>
+<br/><br/>
+<button id="test3">iframe方式调用</button>
+<br/><br/>
+<button id="test4">只显示内容对话框</button>
+<br/><br/>
+<button id="test5">对话框配置按钮</button>
+<br/><br/>
+<button id="test6">message方式调用</button>
+<br/><br/>
+<button id="test7">tip方式调用</button>
+</center>
+<!--以下代码不作为插件效果内容 -->
+<style>.jhp{ padding:5px 0px; text-align:center; font-size:12px;clear:both; margin:0px; }.d_foot_o{ text-align:center; margin:35px 0 10px 0 ;clear:both; }</style>
+
+<div class="d_foot_o">标题：<a title="" href="http://www.juheweb.com/js/tc/203.html">jDialog弹出层、对话框、提示框jquery插件</a>&nbsp;&nbsp;&nbsp;栏目分类：<a class="lm" title="弹出提示" target="_blank" href="http://www.juheweb.com/js/tc/">弹出提示</a>&nbsp;&nbsp;&nbsp;素材整理：<a href="http://www.juheweb.com">聚合分享</a>&nbsp;&nbsp;&nbsp;下载：<a title="立即下载" href="http://www.juheweb.com/js/tc/203.html">立即下载</a></div><p class="jhp">&#12288;本代码仅限于学习交流，请勿用于商业用途! </p><p class="jhp">声明:聚合分享素材网代码来源于互联网,精心整理,转载请注明出处!</p>
+
+</body>
+</html>

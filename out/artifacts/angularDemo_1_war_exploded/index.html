@@ -20,10 +20,9 @@
             $("html").css("font-size",colSize+"px");
         })();
     </script>
-    <script src="js/route.js"></script>
-    <script src="js/controller.js"></script>
+
 </head>
-<body ng-controller="myCtrl">
+<body>
 <header>
     <div id="header-top">
         <div class="icon classify-icon">=</div>
@@ -36,6 +35,8 @@
 
 <div id="container" ng-view></div>
 
+
+
 <div class="clear"></div>
 
 <footer>
@@ -47,5 +48,7 @@
         <div class="nav"><a href="#/mine">我的</a></div>
     </div>
 </footer>
+<script src="js/route.js"></script>
+<script src="js/controller.js"></script>
 </body>
 </html>

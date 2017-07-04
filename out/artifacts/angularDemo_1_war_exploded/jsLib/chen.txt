@@ -1,0 +1,95 @@
+chenbaojun 11111111
+
+http://gitlab.tuochetong.com/root/eshipping-repository.git
+//http://git.tuochetong.com/root/eshipping-repository.git
+
+无界
+http://git.tuochetong.com/root/eshipping-release.git
+
+
+
+广州港编译：
+（在项目路径下 
+D:\chen\eshipping-repository\eshipping-projects\eshipping-truck>）
+mvn clean install -Dmaven.test.skip=true -e
+
+
+
+营口重新拉完代码 在cmd中运行：(路径 D:\chen\eshipping-code\eshipping-projects\eshipping-truck>)
+mvn clean install -Dmaven.test.skip=true -e
+
+====================================================================
+ClientBuliderMojo.java 编译项目
+其中修改部分 (line 163-168)
+广州：
+mojo.setDistFolder(new File( 
+	"D:\\guangzhou-git\\eshipping-repository\\eshipping-projects\\eshipping-truck\\target\\eshipping-truck"));
+mojo.setDomain("10.134.240.101:8080/eshipping-truck");
+mojo.setDeployContext("/eshipping-truck");
+mojo.setTruckDomain("10.134.240.101:8080/eshipping-truck");
+mojo.setTruckDeployContext("/eshipping-truck");
+mojo.setSrcFolder(new File("D:\\guangzhou-git\\eshipping-repository\\eshipping-web\\src"));
+
+====================================================================
+营口：
+mojo.setDistFolder(new File( 
+	"D:\\yingkou-git\\eshipping-yingkou\\eshipping-projects\\eshipping-truck\\target\\eshipping-truck"));
+mojo.setDomain("10.134.240.211:8080/eshipping-truck");
+mojo.setDeployContext("/eshipping-truck");
+mojo.setTruckDomain("10.134.240.101:8080/eshipping-truck");
+mojo.setTruckDeployContext("/eshipping-truck");
+mojo.setSrcFolder(new File("D:\\yingkou-git\\eshipping-yingkou\\eshipping-web\\src"));
+
+============================================================================
+wj-repositry
+
+无界电商
+mojo.setDistFolder(new File( 
+				"D:\\wj-repositry\\eshipping-projects\\eshipping-truck\\target\\eshipping-truck"));
+			mojo.setDomain("10.134.240.101:8080/eshipping-truck");
+			mojo.setDeployContext("/eshipping-truck");
+			mojo.setTruckDomain("10.134.240.101:8080/eshipping-truck");
+			mojo.setTruckDeployContext("/eshipping-truck");
+			mojo.setSrcFolder(new File("D:\\wj-repositry\\eshipping-web\\src"));
+
+
+
+
+yhttruck
+nsadmin
+p:test
+
+===============================================
+http://qa.gz.tuochetong.com/truck-saas/bill-management.html
+gztruck 111111
+
+
+
+
+runoob阅读记录
+http://www.runoob.com/js/js-void.html
+
+
+
+
+
+yk - 营口----测试服
+http://221.202.201.184/truck-saas/login.html
+portx_cszh1 test 委托方
+portx_cszh2 test 车队
+
+
+==================================================
+项目打开
+营口：D:\\chen\eshipping-yinkou
+eshipping-web
+
+广州：D:\\eshipping-code
+eshipping-web
+
+
+
+
+
+
+

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <script src="jquery.js"></script>
+    <style type="text/css">
+        body{
+            margin: 0;
+            padding: 0;
+        }
+        #container{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 100%;
+        }
+        #bubble-box{
+            width: 800px;
+            height: 450px;
+            border: 1px solid #f0f0f0;
+            box-shadow: 0 0  15px #ccc;
+            user-select: none;
+        }
+        .blue, .red{
+            display: inline-block;
+            border-radius: 50%;
+            background: url("images/blue.png") center center no-repeat;
+            background-size: cover;
+            width: 100px;
+            height: 100px;
+            position: absolute;
+        }
+        .red{
+            background: url("images/red.png") center center no-repeat;
+        }
+        .red:hover{
+            cursor: move;
+        }
+
+    </style>
+</head>
+<body>
+<div id="container">
+    <div id="bubble-box">
+        <span id="blue" class="blue"></span>
+        <span id="red" class="red"></span>
+    </div>
+</div>
+<script src="bubble.js"></script>
+</body>
+</html>

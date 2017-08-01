@@ -155,3 +155,14 @@ function merge(left, right)      {
     return result;
 }
 
+
+
+
+// 安全性考虑，对传输值进行编码
+encodeURIComponent() // 编码  将基本字符也编译，编译够彻底
+decodeURIComponent() // 解码
+
+encodeURI() // 编码  保留基本字符，编译不够彻底
+decodeURI() // 解码
+
+

@@ -68,3 +68,10 @@ String()	String(str);	可将null=>“null”,undefined=>"undefined"
          }
     }
     alert(num); // 循环在 i 为5，j 为5的时候跳出双循环，返回到outPoint层继续执行，输出 55
+
+
+
+
+    <li><a href="http://www.yeahzan.com/fa/facss.html" target="main">图标调用</a></li>
+    <li><a href="http://hemin.cn/jq/cheatsheet.html" target="main">Jquery手册</a></li>
+    <li><a href="http://tool.c7sky.com/webcolor/" target="main">配色板</a></li>
